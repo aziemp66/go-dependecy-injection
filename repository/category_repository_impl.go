@@ -4,8 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"errors"
-	"programmerzamannow/belajar-golang-restful-api/helper"
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
+
+	"github.com/aziemp66/go-dependecy-injection/helper"
+	"github.com/aziemp66/go-dependecy-injection/model/domain"
 )
 
 type CategoryRepositoryImpl struct {

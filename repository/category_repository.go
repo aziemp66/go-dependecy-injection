@@ -3,7 +3,8 @@ package repository
 import (
 	"context"
 	"database/sql"
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
+
+	"github.com/aziemp66/go-dependecy-injection/model/domain"
 )
 
 type CategoryRepository interface {

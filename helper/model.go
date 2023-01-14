@@ -1,8 +1,8 @@
 package helper
 
 import (
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
+	"github.com/aziemp66/go-dependecy-injection/model/domain"
+	"github.com/aziemp66/go-dependecy-injection/model/web"
 )
 
 func ToCategoryResponse(category domain.Category) web.CategoryResponse {

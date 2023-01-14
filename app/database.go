@@ -2,8 +2,9 @@ package app
 
 import (
 	"database/sql"
-	"programmerzamannow/belajar-golang-restful-api/helper"
 	"time"
+
+	"github.com/aziemp66/go-dependecy-injection/helper"
 )
 
 func NewDB() *sql.DB {

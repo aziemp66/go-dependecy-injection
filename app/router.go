@@ -1,9 +1,9 @@
 package app
 
 import (
+	"github.com/aziemp66/go-dependecy-injection/controller"
+	"github.com/aziemp66/go-dependecy-injection/exception"
 	"github.com/julienschmidt/httprouter"
-	"programmerzamannow/belajar-golang-restful-api/controller"
-	"programmerzamannow/belajar-golang-restful-api/exception"
 )
 
 func NewRouter(categoryController controller.CategoryController) *httprouter.Router {

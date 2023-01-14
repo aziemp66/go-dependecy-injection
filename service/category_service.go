@@ -2,7 +2,8 @@ package service
 
 import (
 	"context"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
+
+	"github.com/aziemp66/go-dependecy-injection/model/web"
 )
 
 type CategoryService interface {

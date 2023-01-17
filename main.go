@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/aziemp66/go-dependecy-injection/app"
@@ -27,6 +28,7 @@ func main() {
 		Handler: middleware.NewAuthMiddleware(router),
 	}
 
+	fmt.Println("Server is running on port 3000")
 	err := server.ListenAndServe()
 	helper.PanicIfError(err)
 }

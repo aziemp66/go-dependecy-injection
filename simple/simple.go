@@ -8,9 +8,11 @@ func NewSimpleRepository() *SimpleRepository {
 }
 
 type SimpleService struct {
-	SimpleRepository SimpleRepository
+	*SimpleRepository
 }
 
-func NewSimpleService(simpleRepository SimpleRepository) *SimpleService {
-	return &SimpleService{SimpleRepository: simpleRepository}
+func NewSimpleService(repository *SimpleRepository) *SimpleService {
+	return &SimpleService{
+		SimpleRepository: repository,
+	}
 }

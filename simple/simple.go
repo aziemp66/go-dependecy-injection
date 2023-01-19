@@ -7,7 +7,9 @@ type SimpleRepository struct {
 }
 
 func NewSimpleRepository() *SimpleRepository {
-	return &SimpleRepository{}
+	return &SimpleRepository{
+		Error: true,
+	}
 }
 
 type SimpleService struct {
@@ -16,7 +18,7 @@ type SimpleService struct {
 
 func NewSimpleService(repository *SimpleRepository) (*SimpleService, error) {
 	if repository.Error {
-		return nil, errors.New("Failed to create SimpleService")
+		return nil, errors.New("failed to create simpleservice")
 	}
 
 	return &SimpleService{

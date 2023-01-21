@@ -16,3 +16,10 @@ func InitializeService(isError bool) (*SimpleService, error) {
 	}
 	return simpleService, nil
 }
+
+func InitializeDatabaseRepository() *DatabaseRepository {
+	databasePostgresql := NewDatabasePostgresql()
+	databaseMongodb := NewDatabaseMongodb()
+	databaseRepository := NewDatabaseRepository(databasePostgresql, databaseMongodb)
+	return databaseRepository
+}

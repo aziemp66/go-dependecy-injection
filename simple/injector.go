@@ -22,3 +22,14 @@ func InitializeFoobarService() *FoobarService {
 	wire.Build(fooset, barset, NewFoobarService)
 	return nil
 }
+
+var helloSet = wire.NewSet(
+	NewSayHelloImpl,
+	wire.Bind(new(SayHello), new(*SayHelloImpl)),
+)
+
+func InitializeHelloService() *HelloService {
+	wire.Build(helloSet, NewHelloService)
+	return nil
+
+}

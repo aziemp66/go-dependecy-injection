@@ -33,3 +33,13 @@ func InitializeHelloService() *HelloService {
 	return nil
 
 }
+
+var foobarSet = wire.NewSet(
+	NewFoo,
+	NewBar,
+)
+
+func InitializeFoobar() *FooBar {
+	wire.Build(foobarSet, wire.Struct(new(FooBar), "Foo", "Bar")) // * for all fields
+	return nil
+}

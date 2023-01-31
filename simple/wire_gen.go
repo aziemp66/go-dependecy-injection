@@ -43,6 +43,16 @@ func InitializeHelloService() *HelloService {
 	return helloService
 }
 
+func InitializeFoobar() *FooBar {
+	foo := NewFoo()
+	bar := NewBar()
+	fooBar := &FooBar{
+		Foo: foo,
+		Bar: bar,
+	}
+	return fooBar
+}
+
 // injector.go:
 
 var fooset = wire.NewSet(NewFooRepository, NewFooService)
@@ -51,4 +61,9 @@ var barset = wire.NewSet(NewBarRepository, NewBarService)
 
 var helloSet = wire.NewSet(
 	NewSayHelloImpl, wire.Bind(new(SayHello), new(*SayHelloImpl)),
+)
+
+var foobarSet = wire.NewSet(
+	NewFoo,
+	NewBar,
 )

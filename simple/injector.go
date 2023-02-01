@@ -3,7 +3,11 @@
 
 package simple
 
-import "github.com/google/wire"
+import (
+	"github.com/google/wire"
+	"io"
+	"os"
+)
 
 func InitializeService(isError bool) (*SimpleService, error) {
 	wire.Build(NewSimpleRepository, NewSimpleService)
@@ -41,5 +45,20 @@ var foobarSet = wire.NewSet(
 
 func InitializeFoobar() *FooBar {
 	wire.Build(foobarSet, wire.Struct(new(FooBar), "Foo", "Bar")) // * for all fields
+	return nil
+}
+
+var FooBarValueSet = wire.NewSet(
+	wire.Value(&Foo{}),
+	wire.Value(&Bar{}),
+)
+
+func InitializeFooBarUsingValue() *FooBar {
+	wire.Build(FooBarValueSet, wire.Struct(new(FooBar), "*"))
+	return nil
+}
+
+func InitializeReader() io.Reader {
+	wire.Build(wire.InterfaceValue(new(io.Reader), os.Stdin))
 	return nil
 }

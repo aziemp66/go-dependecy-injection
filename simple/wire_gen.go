@@ -8,6 +8,8 @@ package simple
 
 import (
 	"github.com/google/wire"
+	"io"
+	"os"
 )
 
 // Injectors from injector.go:
@@ -53,6 +55,30 @@ func InitializeFoobar() *FooBar {
 	return fooBar
 }
 
+func InitializeFooBarUsingValue() *FooBar {
+	foo := _wireFooValue
+	bar := _wireBarValue
+	fooBar := &FooBar{
+		Foo: foo,
+		Bar: bar,
+	}
+	return fooBar
+}
+
+var (
+	_wireFooValue = &Foo{}
+	_wireBarValue = &Bar{}
+)
+
+func InitializeReader() io.Reader {
+	reader := _wireFileValue
+	return reader
+}
+
+var (
+	_wireFileValue = os.Stdin
+)
+
 // injector.go:
 
 var fooset = wire.NewSet(NewFooRepository, NewFooService)
@@ -67,3 +93,5 @@ var foobarSet = wire.NewSet(
 	NewFoo,
 	NewBar,
 )
+
+var FooBarValueSet = wire.NewSet(wire.Value(&Foo{}), wire.Value(&Bar{}))
